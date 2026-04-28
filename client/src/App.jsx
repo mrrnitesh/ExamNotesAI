@@ -10,7 +10,7 @@ import Notes from './pages/Notes.jsx'
 import History from './pages/History.jsx'
 import PaymentSuccess from './pages/PaymentSuccess'
 import PaymentFailed from './pages/PaymentFailed'
-export const serverUrl = "http://localhost:8000"
+export const serverUrl = "https://examnotesaiserver-gnrc.onrender.com"
 
 const App = () => {
   const dispatch = useDispatch()
