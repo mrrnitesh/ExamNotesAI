@@ -1,0 +1,27 @@
+# dependencies
+node_modules
+client/node_modules
+server/node_modules
+
+# env files (SECRET ⚠️)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# logs
+logs
+*.log
+npm-debug.log*
+
+# build files
+dist
+build
+
+# OS files
+.DS_Store
+
+# editor files
+.vscode
+.idea
