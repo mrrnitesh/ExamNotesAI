@@ -15,8 +15,8 @@ const Navbar = () => {
     const dispatch = useDispatch()
     // This line add from chatgpt
    // const serverUrl = "http://localhost:5173/auth";
-   //const serverUrl = "https://examnotesaiserver-u6sq.onrender.com";
-export const serverUrl = "https://examnotesaiserver-u6sq.onrender.com"
+   const serverUrl = "https://examnotesaiserver-u6sq.onrender.com";
+
     const handleSignOut = async () =>{
         try{
             await axios.get(serverUrl + "/api/auth/logout", {withCredentials:true})
