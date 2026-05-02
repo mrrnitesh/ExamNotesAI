@@ -2,7 +2,7 @@ import React from 'react'
 import { motion, spring } from "motion/react"
 import { FcGoogle } from "react-icons/fc";
 import { signInWithPopup } from 'firebase/auth';
-// import { signInWithRedirect } from "firebase/auth";
+import { signInWithRedirect } from "firebase/auth";
 import { auth, provider } from '../utills/firebase';
 import axios from "axios"
 import { serverUrl } from '../App';
