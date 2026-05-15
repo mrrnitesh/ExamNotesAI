@@ -14,7 +14,7 @@ const Navbar = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     // This line add from chatgpt
-    const serverUrl = "http://localhost:5173/auth";
+    const serverUrl = "https://examnotesaiserver-hl41.onrender.com/auth";
     // const serverUrl = "https://examnotesaiserver-u6sq.onrender.com";
     const handleSignOut = async () =>{
         try{
