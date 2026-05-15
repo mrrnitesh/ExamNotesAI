@@ -1,25 +1,25 @@
 import React from 'react'
-import { motion, px } from "motion/react"
+import { motion } from "motion/react"
 import logo from "../assets/logo.png"
 import { useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import axios from 'axios'
 import { serverUrl } from '../App'
 import { setUserData } from '../redux/userSlice'
-import axios from "axios";
-const Footer = () => {
+function Footer() {
     const navigate = useNavigate()
-        const dispatch = useDispatch()
-    // This line add from chatgpt
-    const serverUrl = "http://localhost:5173/auth";
-    const handleSignOut = async () =>{
-        try{
-            await axios.get(serverUrl + "/api/auth/logout", {withCredentials:true})
-            dispatch(setUserData(null))
-            navigate("/auth")
-        }catch(error){
-            console.log(error)
+     const dispatch = useDispatch()
+        const handleSignOut = async () => {
+            try {
+                await axios.get(serverUrl+ "/api/auth/logout" , {withCredentials:true})
+                dispatch(setUserData(null))
+                navigate("/auth")
+                
+                
+            } catch (error) {
+                console.log(error)
+            }
         }
-    }
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
