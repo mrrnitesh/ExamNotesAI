@@ -3,7 +3,7 @@ import { motion, px } from "motion/react"
 import logo from "../assets/logo.png"
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-// import { serverUrl } from '../App'
+import { serverUrl } from '../App'
 import { setUserData } from '../redux/userSlice'
 import axios from "axios";
 const Footer = () => {
