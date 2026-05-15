@@ -25,7 +25,10 @@ app.use(cors(
    { origin:"https://examnotesaiclient-l4rx.onrender.com",
   //  { origin:"https://examnotesaiclient-9kj0.onrender.com",
      credentials:true,
-     methods:["GET", "POST" , "PUT" , "DELETE" , "OPTIONS"]
+     methods:["GET", "POST" , "PUT" , "DELETE" , "OPTIONS"],
+    // Extra
+     allowedHeaders: ["Content-Type", "Authorization"],
+     optionsSuccessStatus: 200 // for legacy browsers
    }
 ))
 app.use(express.json())
