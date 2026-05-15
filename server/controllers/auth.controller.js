@@ -17,6 +17,7 @@ export const googleAuth = async (req, res) => {
             // samesite: "strict", 
             // secure: true,
             // sameSite: "none",
+            // Extra
              secure: process.env.NODE_ENV === "production", // true for production
              sameSite: "lax" // important for cross-origin cookies     
             path:"/",
