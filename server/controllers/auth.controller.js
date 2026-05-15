@@ -15,8 +15,10 @@ export const googleAuth = async (req, res) => {
             httpOnly: true,
             // secure: false,
             // samesite: "strict", 
-            secure: true,
-            sameSite: "none",
+            // secure: true,
+            // sameSite: "none",
+             secure: process.env.NODE_ENV === "production", // true for production
+             sameSite: "lax" // important for cross-origin cookies     
             path:"/",
             maxAge: 7 * 24 * 60 * 60 * 1000
         })
