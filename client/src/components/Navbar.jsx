@@ -14,14 +14,16 @@ const Navbar = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     // This line add from chatgpt
-    const serverUrl = "https://examnotesaiserver-hl41.onrender.com/auth";
-    // const serverUrl = "https://examnotesaiserver-u6sq.onrender.com";
-    const handleSignOut = async () =>{
-        try{
-            await axios.get(serverUrl + "/api/auth/logout", {withCredentials:true})
+    //const serverUrl = "https://examnotesaiserver-hl41.onrender.com/auth";
+   
+     const handleSignOut = async () => {
+        try {
+            await axios.get(serverUrl+ "/api/auth/logout" , {withCredentials:true})
             dispatch(setUserData(null))
             navigate("/auth")
-        }catch(error){
+            
+            
+        } catch (error) {
             console.log(error)
         }
     }
