@@ -2,7 +2,7 @@ import React from 'react'
 import { motion, spring } from "motion/react"
 import { FcGoogle } from "react-icons/fc";
 import { signInWithPopup } from 'firebase/auth';
-import { signInWithRedirect } from "firebase/auth";
+// import { signInWithRedirect } from "firebase/auth";
 import { auth, provider } from '../utills/firebase';
 import axios from "axios"
 import { serverUrl } from '../App';
@@ -11,21 +11,34 @@ import { setUserData } from '../redux/userSlice';
 
 function Auth() {
   const dispatch = useDispatch()
-  const handleGoogleAuth = async () => {
-    try {
-      const response = await signInWithPopup(auth, provider)
-      const User = response.user
-      const name = User.displayName
-      const email = User.email
-      const result = await axios.post(serverUrl + "/api/auth/google" , {name, email} ,{
-        withCredentials:true
-      })
-      dispatch(setUserData(result.data))
-      // console.log(result.data)
-    } catch (error) {
-      console.log(error);
-    }
+  const [loading, setLoading] = useState(false)
+
+const handleGoogleAuth = async () => {
+  if (loading) return;
+
+  try {
+    setLoading(true)
+
+    const response = await signInWithPopup(auth, provider)
+
+    const User = response.user
+    const name = User.displayName
+    const email = User.email
+
+    const result = await axios.post(
+      serverUrl + "/api/auth/google",
+      { name, email },
+      { withCredentials: true }
+    )
+
+    dispatch(setUserData(result.data))
+
+  } catch (error) {
+    console.log(error)
+  } finally {
+    setLoading(false)
   }
+}
   
   return (
     <div className='min-h-screen overflow-hidden bg-white text-black px-8'>
